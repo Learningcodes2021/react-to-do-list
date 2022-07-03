@@ -1,9 +1,14 @@
 import React from "react";
 
-export default function Form({ setInputText, todos, setTodos, inputText }) {
+export default function Form({
+  setInputText,
+  todos,
+  setTodos,
+  inputText,
+  setStatus,
+}) {
   //Writing javascript code and function
   const inputTextHandler = (e) => {
-    console.log(e.target.value);
     setInputText(e.target.value);
   };
   const submitTodoHandler = (e) => {
@@ -13,6 +18,9 @@ export default function Form({ setInputText, todos, setTodos, inputText }) {
       { text: inputText, completed: false, id: Math.random() * 1000 },
     ]);
     setInputText("");
+  };
+  const statusHandler = (e) => {
+    setStatus(e.target.value);
   };
   return (
     <form>
@@ -26,7 +34,7 @@ export default function Form({ setInputText, todos, setTodos, inputText }) {
         <i className="fa-solid fa-rectangle-xmark"></i>
       </button>
       <div className="select">
-        <select name="todos" className="filter-todo">
+        <select onChange={statusHandler} name="todos" className="filter-todo">
           <option value="all">All</option>
           <option value="completed">Completed</option>
           <option value="incompleted">Incompleted</option>
