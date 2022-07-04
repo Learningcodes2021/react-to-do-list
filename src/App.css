@@ -143,3 +143,9 @@ select {
   background: white;
   color: rgb(238, 164, 179);
 }
+
+@media screen and (max-width: 700px) {
+  html {
+    font-size: 55%;
+  }
+}
